@@ -100,8 +100,8 @@
     {
       "temporada": "2024-25",
       "campeon": "1",
-      "subcampeon": "3",
-      "notas": "Ejemplo"
+      "subcampeon": "7",
+      "notas": "3º: A Brunch of Old Dude"
     },
     {
       "temporada": "2025-26",
@@ -360,7 +360,7 @@
     {
       "id": "m-1791403176777",
       "fecha": "2026-09-21",
-      "temporada": "",
+      "temporada": "2026-27",
       "tipo": "traspaso",
       "equipos": [
         "7",
@@ -371,7 +371,7 @@
     {
       "id": "m-1791403205818",
       "fecha": "2026-09-21",
-      "temporada": "",
+      "temporada": "2026-27",
       "tipo": "traspaso",
       "equipos": [
         "7",
@@ -382,7 +382,7 @@
     {
       "id": "m-1791403325463",
       "fecha": "2026-09-26",
-      "temporada": "",
+      "temporada": "2026-27",
       "tipo": "traspaso",
       "equipos": [
         "7",
@@ -393,7 +393,7 @@
     {
       "id": "m-1791403412958",
       "fecha": "2026-10-06",
-      "temporada": "",
+      "temporada": "2026-27",
       "tipo": "traspaso",
       "equipos": [
         "14",
@@ -404,7 +404,7 @@
     {
       "id": "m-1791403486456",
       "fecha": "2026-10-07",
-      "temporada": "",
+      "temporada": "2026-27",
       "tipo": "traspaso",
       "equipos": [
         "1",
@@ -415,7 +415,7 @@
     {
       "id": "m-1791403516953",
       "fecha": "2026-10-07",
-      "temporada": "",
+      "temporada": "2026-27",
       "tipo": "traspaso",
       "equipos": [
         "1",
@@ -425,28 +425,6 @@
     }
   ],
   "votaciones": [
-    {
-      "id": "v1",
-      "titulo": "Ejemplo: cambiar fecha limite de traspasos",
-      "descripcion": "",
-      "fecha": "2026-10-01",
-      "estado": "cerrada",
-      "opciones": [
-        {
-          "texto": "A favor",
-          "votos": 9
-        },
-        {
-          "texto": "En contra",
-          "votos": 4
-        },
-        {
-          "texto": "Abstencion",
-          "votos": 1
-        }
-      ],
-      "resultado": "Aprobada"
-    },
     {
       "id": "v-1791403651442",
       "titulo": "Post-season for non-playoff teams",
