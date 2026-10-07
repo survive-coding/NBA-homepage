@@ -1,0 +1,68 @@
+{
+  "_ayuda": "Edita solo los valores. Cada elemento de una lista va separado por coma, sin coma tras el ultimo. Fechas en formato AAAA-MM-DD. Los elementos con id que empieza por 'ejemplo' son de muestra: borralos o sustituyelos.",
+
+  "liga": {
+    "nombre": "Mi Liga Dynasty",
+    "descripcion": "Liga dynasty de la NBA en Yahoo, desde AAAA.",
+    "fundada": 2020
+  },
+
+  "normas": [
+    {
+      "titulo": "Formato",
+      "items": [
+        "Ejemplo: 12 equipos, categorias o puntos segun vuestra configuracion.",
+        "Ejemplo: plantilla maxima de 15 jugadores."
+      ]
+    },
+    {
+      "titulo": "Draft y picks",
+      "items": [
+        "Ejemplo: draft de rookies de 2 rondas en orden inverso a la clasificacion.",
+        "Ejemplo: los picks se pueden intercambiar hasta con 3 temporadas de antelacion."
+      ]
+    },
+    {
+      "titulo": "Traspasos",
+      "items": [
+        "Ejemplo: los traspasos requieren aprobacion del comisionado."
+      ]
+    }
+  ],
+
+  "palmares": [
+    {
+      "temporada": "2024-25",
+      "campeon": "Ejemplo: nombre del equipo",
+      "manager": "Ejemplo: nombre",
+      "subcampeon": "Ejemplo: nombre del equipo",
+      "notas": ""
+    }
+  ],
+
+  "transacciones_manuales": [
+    {
+      "id": "ejemplo-1",
+      "fecha": "2026-10-01",
+      "tipo": "traspaso_picks",
+      "equipos": ["Equipo A", "Equipo B"],
+      "detalle": "Equipo A cede pick 1a ronda 2027 a Equipo B por pick 2a ronda 2026."
+    }
+  ],
+
+  "votaciones": [
+    {
+      "id": "ejemplo-2026-01",
+      "titulo": "Ejemplo: cambiar la fecha limite de traspasos",
+      "descripcion": "Texto opcional con el contexto de la propuesta.",
+      "fecha": "2026-10-01",
+      "estado": "cerrada",
+      "opciones": [
+        { "texto": "A favor", "votos": 7 },
+        { "texto": "En contra", "votos": 4 },
+        { "texto": "Abstencion", "votos": 1 }
+      ],
+      "resultado": "Aprobada"
+    }
+  ]
+}
