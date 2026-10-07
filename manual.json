@@ -1,64 +1,64 @@
 {
   "liga": {
-    "nombre": "Mi Liga Dynasty",
-    "descripcion": "Liga dynasty de la NBA en Yahoo, 14 equipos, categorias.",
+    "nombre": "The League - Dynasty",
+    "descripcion": "14 losers, one with titles and shit",
     "fundada": 2020
   },
   "equipos": [
     {
       "id": "1",
       "nombre": "Haarlem Bricklayers Assoc.",
-      "manager": "Manager 1"
+      "manager": "Peter"
     },
     {
       "id": "2",
       "nombre": "#DontReachYoungBlood",
-      "manager": "Manager 2"
+      "manager": "Takahashi"
     },
     {
       "id": "3",
       "nombre": "RIP - Rebuilding in Process",
-      "manager": "Manager 3"
+      "manager": "Henley"
     },
     {
       "id": "4",
       "nombre": "Ajax Saint-Germain",
-      "manager": "Manager 4"
+      "manager": "Alexandre"
     },
     {
       "id": "5",
       "nombre": "Boston Bombers",
-      "manager": "Manager 5"
+      "manager": "Corey"
     },
     {
       "id": "6",
       "nombre": "Brøndby turd sandwich",
-      "manager": "Manager 6"
+      "manager": "Valerio"
     },
     {
       "id": "7",
       "nombre": "Bunch of Clowns",
-      "manager": "Manager 7"
+      "manager": "Victor"
     },
     {
       "id": "8",
       "nombre": "Hoop There it is",
-      "manager": "Manager 8"
+      "manager": "Serdar"
     },
     {
       "id": "9",
       "nombre": "Hugh’s Hawks",
-      "manager": "Manager 9"
+      "manager": "Russell"
     },
     {
       "id": "10",
       "nombre": "Nikaros team",
-      "manager": "Manager 10"
+      "manager": "Nikolaos"
     },
     {
       "id": "11",
       "nombre": "Rookie Monsta!",
-      "manager": "Manager 11"
+      "manager": "Pendra"
     },
     {
       "id": "12",
@@ -68,34 +68,15 @@
     {
       "id": "13",
       "nombre": "We the North-ish",
-      "manager": "Manager 13"
+      "manager": "James"
     },
     {
       "id": "14",
       "nombre": "Wolfholf got curb stomped",
-      "manager": "Manager 14"
+      "manager": "James #2"
     }
   ],
-  "normas": [
-    {
-      "titulo": "Formato",
-      "items": [
-        "Ejemplo: 14 equipos, categorias, plantilla maxima de 15 jugadores."
-      ]
-    },
-    {
-      "titulo": "Draft y picks",
-      "items": [
-        "Ejemplo: draft de rookies de 2 rondas en orden inverso a la clasificacion."
-      ]
-    },
-    {
-      "titulo": "Traspasos",
-      "items": [
-        "Ejemplo: los traspasos requieren aprobacion del comisionado."
-      ]
-    }
-  ],
+  "normas": [],
   "palmares": [
     {
       "temporada": "2024-25",
@@ -142,41 +123,41 @@
       "11",
       "14",
       "5"
+    ],
+    "2023-24": [
+      "1",
+      "6",
+      "12",
+      "8",
+      "11",
+      "10",
+      "9",
+      "7",
+      "4",
+      "3",
+      "13",
+      "2",
+      "5",
+      "14"
+    ],
+    "2022-23": [
+      "4",
+      "10",
+      "1",
+      "9",
+      "8",
+      "7",
+      "11",
+      "14",
+      "3",
+      "5",
+      "13",
+      "6",
+      "2",
+      "12"
     ]
   },
   "transacciones": [
-    {
-      "id": "t1",
-      "fecha": "2026-10-01",
-      "temporada": "2026-27",
-      "tipo": "traspaso",
-      "equipos": [
-        "1",
-        "5"
-      ],
-      "detalle": "Ejemplo: Equipo 1 cede a A por B de Equipo 5."
-    },
-    {
-      "id": "t2",
-      "fecha": "2026-09-20",
-      "temporada": "2026-27",
-      "tipo": "traspaso_picks",
-      "equipos": [
-        "2",
-        "9"
-      ],
-      "detalle": "Ejemplo: pick 1a ronda 2027 por pick 2a ronda 2026."
-    },
-    {
-      "id": "t3",
-      "fecha": "2026-09-15",
-      "temporada": "2026-27",
-      "tipo": "fichaje",
-      "equipos": [
-        "7"
-      ],
-      "detalle": "Ejemplo: Equipo 7 ficha a C y corta a D."
-    },
     {
       "id": "y2025-26-t-2026-03-05-6-33-pm-4_1-oso-ighodaro",
       "fecha": "2026-03-05",
@@ -360,7 +341,7 @@
     {
       "id": "m-1791403176777",
       "fecha": "2026-09-21",
-      "temporada": "2026-27",
+      "temporada": "2025-26",
       "tipo": "traspaso",
       "equipos": [
         "7",
