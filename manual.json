@@ -1,67 +1,44 @@
 {
-  "_ayuda": "Edita solo los valores. Cada elemento de una lista va separado por coma, sin coma tras el ultimo. Fechas en formato AAAA-MM-DD. Los elementos con id que empieza por 'ejemplo' son de muestra: borralos o sustituyelos.",
-
-  "liga": {
-    "nombre": "Mi Liga Dynasty",
-    "descripcion": "Liga dynasty de la NBA en Yahoo, desde AAAA.",
-    "fundada": 2020
-  },
-
+  "_ayuda": "Edita solo los valores. Comas entre elementos y ninguna tras el ultimo. Fechas AAAA-MM-DD. En 'equipos' y 'clasificaciones' se usan los id de equipo. Borra los elementos de ejemplo.",
+  "actualizado": "2026-10-07",
+  "liga": { "nombre": "Mi Liga Dynasty", "descripcion": "Liga dynasty de la NBA en Yahoo, 14 equipos, categorias.", "fundada": 2020 },
+  "equipos": [
+    {"id":"1","nombre":"Equipo 1","manager":"Manager 1"},
+    {"id":"2","nombre":"Equipo 2","manager":"Manager 2"},
+    {"id":"3","nombre":"Equipo 3","manager":"Manager 3"},
+    {"id":"4","nombre":"Equipo 4","manager":"Manager 4"},
+    {"id":"5","nombre":"Equipo 5","manager":"Manager 5"},
+    {"id":"6","nombre":"Equipo 6","manager":"Manager 6"},
+    {"id":"7","nombre":"Equipo 7","manager":"Manager 7"},
+    {"id":"8","nombre":"Equipo 8","manager":"Manager 8"},
+    {"id":"9","nombre":"Equipo 9","manager":"Manager 9"},
+    {"id":"10","nombre":"Equipo 10","manager":"Manager 10"},
+    {"id":"11","nombre":"Equipo 11","manager":"Manager 11"},
+    {"id":"12","nombre":"Equipo 12","manager":"Manager 12"},
+    {"id":"13","nombre":"Equipo 13","manager":"Manager 13"},
+    {"id":"14","nombre":"Equipo 14","manager":"Manager 14"}
+  ],
   "normas": [
-    {
-      "titulo": "Formato",
-      "items": [
-        "Ejemplo: 12 equipos, categorias o puntos segun vuestra configuracion.",
-        "Ejemplo: plantilla maxima de 15 jugadores."
-      ]
-    },
-    {
-      "titulo": "Draft y picks",
-      "items": [
-        "Ejemplo: draft de rookies de 2 rondas en orden inverso a la clasificacion.",
-        "Ejemplo: los picks se pueden intercambiar hasta con 3 temporadas de antelacion."
-      ]
-    },
-    {
-      "titulo": "Traspasos",
-      "items": [
-        "Ejemplo: los traspasos requieren aprobacion del comisionado."
-      ]
-    }
+    { "titulo": "Formato", "items": ["Ejemplo: 14 equipos, categorias, plantilla maxima de 15 jugadores."] },
+    { "titulo": "Draft y picks", "items": ["Ejemplo: draft de rookies de 2 rondas en orden inverso a la clasificacion."] },
+    { "titulo": "Traspasos", "items": ["Ejemplo: los traspasos requieren aprobacion del comisionado."] }
   ],
-
   "palmares": [
-    {
-      "temporada": "2024-25",
-      "campeon": "Ejemplo: nombre del equipo",
-      "manager": "Ejemplo: nombre",
-      "subcampeon": "Ejemplo: nombre del equipo",
-      "notas": ""
-    }
+    { "temporada": "2024-25", "campeon": "1", "subcampeon": "3", "notas": "Ejemplo" }
   ],
-
-  "transacciones_manuales": [
-    {
-      "id": "ejemplo-1",
-      "fecha": "2026-10-01",
-      "tipo": "traspaso_picks",
-      "equipos": ["Equipo A", "Equipo B"],
-      "detalle": "Equipo A cede pick 1a ronda 2027 a Equipo B por pick 2a ronda 2026."
-    }
+  "clasificaciones": {
+    "2024-25": ["3","1","7","5","2","9","4","12","6","8","10","14","11","13"],
+    "2025-26": ["1","3","5","7","2","4","6","9","8","12","10","11","14","13"]
+  },
+  "transacciones": [
+    { "id": "t1", "fecha": "2026-10-01", "temporada": "2026-27", "tipo": "traspaso", "equipos": ["1","5"], "detalle": "Ejemplo: Equipo 1 cede a A por B de Equipo 5." },
+    { "id": "t2", "fecha": "2026-09-20", "temporada": "2026-27", "tipo": "traspaso_picks", "equipos": ["2","9"], "detalle": "Ejemplo: pick 1a ronda 2027 por pick 2a ronda 2026." },
+    { "id": "t3", "fecha": "2026-09-15", "temporada": "2026-27", "tipo": "fichaje", "equipos": ["7"], "detalle": "Ejemplo: Equipo 7 ficha a C y corta a D." }
   ],
-
   "votaciones": [
     {
-      "id": "ejemplo-2026-01",
-      "titulo": "Ejemplo: cambiar la fecha limite de traspasos",
-      "descripcion": "Texto opcional con el contexto de la propuesta.",
-      "fecha": "2026-10-01",
-      "estado": "cerrada",
-      "opciones": [
-        { "texto": "A favor", "votos": 7 },
-        { "texto": "En contra", "votos": 4 },
-        { "texto": "Abstencion", "votos": 1 }
-      ],
+      "id": "v1", "titulo": "Ejemplo: cambiar fecha limite de traspasos", "descripcion": "", "fecha": "2026-10-01", "estado": "cerrada",
+      "opciones": [ {"texto":"A favor","votos":9}, {"texto":"En contra","votos":4}, {"texto":"Abstencion","votos":1} ],
       "resultado": "Aprobada"
     }
   ]
