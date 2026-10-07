@@ -47,10 +47,10 @@ footer{text-align:center;color:var(--mu);font-size:.8rem;padding:14px 16px 24px;
 </style>
 </head>
 <body>
-<header><h1 id="t">Sala de trofeos</h1><div class="mu" id="s"></div></header>
+<header><h1 id="t">Trophy Room</h1><div class="mu" id="s"></div></header>
 <nav class="tabs" role="tablist" id="tabs"></nav>
-<main id="app"><p class="mu">Cargando…</p></main>
-<footer>Datos mantenidos manualmente por el comisionado.</footer>
+<main id="app"><p class="mu">Loading…</p></main>
+<footer>Data mantained regularly.</footer>
 <script>
 const $=s=>document.querySelector(s);
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -77,47 +77,47 @@ function show(id){
 function render(d){
   const eq=d.equipos||[],T=Object.fromEntries(eq.map(t=>[t.id,t])),nm=id=>T[id]?T[id].nombre:id;
   const L=d.liga||{};
-  document.title=L.nombre||'Sala de trofeos';
-  $('#t').textContent=L.nombre||'Sala de trofeos';
+  document.title=L.nombre||'Trophy Room';
+  $('#t').textContent=L.nombre||'Trophy Room';
   $('#s').textContent=(L.descripcion||'')+(d.actualizado?' · Actualizado: '+d.actualizado:'');
 
   const tx=[...(d.transacciones||[])].sort((a,b)=>String(b.fecha).localeCompare(String(a.fecha)));
   const cl=d.clasificaciones||{},ss=Object.keys(cl).sort(),cur=ss[ss.length-1],prv=ss[ss.length-2];
   const seasons=[...new Set(tx.map(t=>t.temporada).filter(Boolean))].sort().reverse();
 
-  /* Palmarés */
+  /* Trophy Room */
   const pal=[...(d.palmares||[])].sort((a,b)=>String(b.temporada).localeCompare(String(a.temporada)));
   const cnt={};pal.forEach(p=>cnt[p.campeon]=(cnt[p.campeon]||0)+1);
   const hall=Object.entries(cnt).sort((a,b)=>b[1]-a[1]).map(([id,n])=>`<div class="hall"><span>${esc(nm(id))}</span><span class="gold">${ico('trophy').repeat(Math.min(n,6))}${n>6?' ×'+n:''}</span></div>`).join('');
-  const plq=pal.map(p=>`<div class="plq"><div class="yr">${esc(p.temporada)}</div>${ico('trophy')}<div class="champ">${esc(nm(p.campeon))}</div><div class="mu">Subcampeón · ${esc(nm(p.subcampeon))}</div>${p.notas?`<div class="mu">${esc(p.notas)}</div>`:''}</div>`).join('');
-  const pPal=`<h2>${ico('trophy')}Palmarés</h2>${hall?`<div class="card"><div class="mu">Salón de campeones</div>${hall}</div>`:''}<div class="grid">${plq||'<p class="mu">Aún no hay campeones.</p>'}</div>`;
+  const plq=pal.map(p=>`<div class="plq"><div class="yr">${esc(p.temporada)}</div>${ico('trophy')}<div class="champ">${esc(nm(p.campeon))}</div><div class="mu">Runner-up · ${esc(nm(p.subcampeon))}</div>${p.notas?`<div class="mu">${esc(p.notas)}</div>`:''}</div>`).join('');
+  const pPal=`<h2>${ico('trophy')}Trophy Room</h2>${hall?`<div class="card"><div class="mu">Champions</div>${hall}</div>`:''}<div class="grid">${plq||'<p class="mu">Aún no hay campeones.</p>'}</div>`;
 
-  /* Clasificación */
-  let pCl='<p class="mu">Sin datos de clasificación.</p>';
+  /* Ranking */
+  let pCl='<p class="mu">No ranking data.</p>';
   if(cur){
     const rows=cl[cur].map((id,i)=>{
       const pr=prv?cl[prv].indexOf(id)+1:0,dl=pr?pr-(i+1):null;
       const dh=dl===null?'<span class="mu">–</span>':dl>0?`<span class="up">▲ ${dl}</span>`:dl<0?`<span class="dn">▼ ${-dl}</span>`:'<span class="mu">=</span>';
       return `<tr><td class="${i<3?'r'+(i+1):''}">${i+1}</td><td>${esc(nm(id))}</td><td class="mu">${esc(T[id]?T[id].manager:'')}</td><td>${pr||'–'}</td><td>${dh}</td></tr>`;
     }).join('');
-    pCl=`<p class="mu">Temporada ${esc(cur)}${prv?' frente a '+esc(prv):''}</p><div class="sc"><table><tr><th>Pos</th><th>Equipo</th><th>Manager</th><th>Antes</th><th>Cambio</th></tr>${rows}</table></div>`;
+    pCl=`<p class="mu">Current standings against last season's</p><div class="sc"><table><tr><th>Pos</th><th>Team</th><th>Manager</th><th>Last</th><th>Change</th></tr>${rows}</table></div>`;
   }
-  pCl=`<h2>${ico('podium')}Clasificación</h2>${pCl}`;
+  pCl=`<h2>${ico('podium')}Ranking</h2>${pCl}`;
 
-  /* Transacciones + por equipo */
+  /* Trade Center */
   const txh=n=>tx.slice(0,n).map(t=>`<div class="tx"><span class="badge">${esc(String(t.tipo||'').replace(/_/g,' '))}</span> <b>${esc((t.equipos||[]).map(nm).join(' ↔ '))}</b> <span class="mu">· ${esc(t.fecha)}</span><div>${esc(t.detalle)}</div></div>`).join('')||'<p class="mu">Sin transacciones.</p>';
-  const pTx=`<h2>${ico('swap')}Transacciones</h2>
-   <div class="card"><div class="mu">Movimientos por equipo</div><p><select id="sel"><option value="all">Todas las temporadas</option>${seasons.map(s=>`<option>${esc(s)}</option>`).join('')}</select></p><div class="sc" id="cnt"></div></div>
-   <div class="card"><div class="mu">Últimas transacciones</div><div id="txl">${txh(15)}</div>${tx.length>15?'<p><button id="more">Ver todas ('+tx.length+')</button></p>':''}</div>`;
+  const pTx=`<h2>${ico('swap')}Trades</h2>
+   <div class="card"><div class="mu">Trades by team</div><p><select id="sel"><option value="all">All seasons</option>${seasons.map(s=>`<option>${esc(s)}</option>`).join('')}</select></p><div class="sc" id="cnt"></div></div>
+   <div class="card"><div class="mu">Last trades</div><div id="txl">${txh(15)}</div>${tx.length>15?'<p><button id="more">See all ('+tx.length+')</button></p>':''}</div>`;
 
-  /* Votaciones */
+  /* Polls */
   const vt=(d.votaciones||[]).map(v=>{
     const ops=v.opciones||[],tot=ops.reduce((a,o)=>a+o.votos,0)||1;
     return `<div class="card"><b>${esc(v.titulo)}</b> <span class="badge">${esc(v.estado)}</span><div class="mu">${esc(v.fecha)}${v.descripcion?' · '+esc(v.descripcion):''}</div>`
       +ops.map(o=>`<div>${esc(o.texto)} <span class="mu">${o.votos} (${Math.round(o.votos/tot*100)}%)</span><div class="bar" style="width:${o.votos/tot*100}%"></div></div>`).join('')
-      +(v.resultado?`<div class="gold"><b>Resultado:</b> ${esc(v.resultado)}</div>`:'')+'</div>';
-  }).join('')||'<p class="mu">Sin votaciones.</p>';
-  const pVt=`<h2>${ico('vote')}Votaciones</h2>${vt}`;
+      +(v.resultado?`<div class="gold"><b>Result:</b> ${esc(v.resultado)}</div>`:'')+'</div>';
+  }).join('')||'<p class="mu">No polls.</p>';
+  const pVt=`<h2>${ico('vote')}Polls</h2>${vt}`;
 
   const body={palmares:pPal,clasificacion:pCl,transacciones:pTx,votaciones:pVt};
   $('#tabs').innerHTML=TABS.map(([id,ic,lb])=>`<button class="tab" role="tab" data-t="${id}" aria-label="${lb}" title="${lb}">${ico(ic)}</button>`).join('');
