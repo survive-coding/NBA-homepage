@@ -79,6 +79,18 @@
   "normas": [],
   "palmares": [
     {
+      "temporada": "2022-23",
+      "campeon": "4",
+      "subcampeon": "10",
+      "notas": "3º: Haarlem Bricklayers Assoc."
+    },
+    {
+      "temporada": "2023-24",
+      "campeon": "1",
+      "subcampeon": "6",
+      "notas": "3º: We Come In Peace"
+    },
+    {
       "temporada": "2024-25",
       "campeon": "1",
       "subcampeon": "7",
@@ -341,7 +353,7 @@
     {
       "id": "m-1791403176777",
       "fecha": "2026-09-21",
-      "temporada": "2025-26",
+      "temporada": "2026-27",
       "tipo": "traspaso",
       "equipos": [
         "7",
