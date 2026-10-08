@@ -493,5 +493,151 @@
       "ganador": ""
     }
   },
-  "_ayuda_premios": "premios: 'importe' es texto libre (p. ej. 50 EUR). 'ganador' es opcional: un id de equipo o un nombre; si se rellena, sustituye al calculado automaticamente (reg1-4, trades, improved). po1-4 y consolation son siempre manuales."
+  "_ayuda_premios": "premios: 'importe' es texto libre (p. ej. 50 EUR). 'ganador' es opcional: un id de equipo o un nombre; si se rellena, sustituye al calculado automaticamente (reg1-4, trades, improved). po1-4 y consolation son siempre manuales.",
+  "draft": {
+    "temporada": "",
+    "picks": [
+      {
+        "pick": 1,
+        "equipo": "",
+        "rookie": ""
+      },
+      {
+        "pick": 2,
+        "equipo": "",
+        "rookie": ""
+      },
+      {
+        "pick": 3,
+        "equipo": "",
+        "rookie": ""
+      },
+      {
+        "pick": 4,
+        "equipo": "",
+        "rookie": ""
+      },
+      {
+        "pick": 5,
+        "equipo": "",
+        "rookie": ""
+      },
+      {
+        "pick": 6,
+        "equipo": "",
+        "rookie": ""
+      },
+      {
+        "pick": 7,
+        "equipo": "",
+        "rookie": ""
+      },
+      {
+        "pick": 8,
+        "equipo": "",
+        "rookie": ""
+      },
+      {
+        "pick": 9,
+        "equipo": "",
+        "rookie": ""
+      },
+      {
+        "pick": 10,
+        "equipo": "",
+        "rookie": ""
+      },
+      {
+        "pick": 11,
+        "equipo": "",
+        "rookie": ""
+      },
+      {
+        "pick": 12,
+        "equipo": "",
+        "rookie": ""
+      },
+      {
+        "pick": 13,
+        "equipo": "",
+        "rookie": ""
+      },
+      {
+        "pick": 14,
+        "equipo": "",
+        "rookie": ""
+      },
+      {
+        "pick": 15,
+        "equipo": "",
+        "rookie": ""
+      },
+      {
+        "pick": 16,
+        "equipo": "",
+        "rookie": ""
+      },
+      {
+        "pick": 17,
+        "equipo": "",
+        "rookie": ""
+      },
+      {
+        "pick": 18,
+        "equipo": "",
+        "rookie": ""
+      },
+      {
+        "pick": 19,
+        "equipo": "",
+        "rookie": ""
+      },
+      {
+        "pick": 20,
+        "equipo": "",
+        "rookie": ""
+      },
+      {
+        "pick": 21,
+        "equipo": "",
+        "rookie": ""
+      },
+      {
+        "pick": 22,
+        "equipo": "",
+        "rookie": ""
+      },
+      {
+        "pick": 23,
+        "equipo": "",
+        "rookie": ""
+      },
+      {
+        "pick": 24,
+        "equipo": "",
+        "rookie": ""
+      },
+      {
+        "pick": 25,
+        "equipo": "",
+        "rookie": ""
+      },
+      {
+        "pick": 26,
+        "equipo": "",
+        "rookie": ""
+      },
+      {
+        "pick": 27,
+        "equipo": "",
+        "rookie": ""
+      },
+      {
+        "pick": 28,
+        "equipo": "",
+        "rookie": ""
+      }
+    ]
+  },
+  "_ayuda_draft": "draft.picks: 28 picks (2 rondas x 14). 'equipo' = id de equipo (o nombre) y 'rookie' = nombre del jugador. 'temporada' es opcional y se muestra junto al titulo."
 }
