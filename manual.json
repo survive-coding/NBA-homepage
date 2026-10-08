@@ -449,47 +449,47 @@
   "actualizado": "2026-10-07",
   "premios": {
     "reg1": {
-      "importe": "",
+      "importe": "1€",
       "ganador": ""
     },
     "reg2": {
-      "importe": "",
+      "importe": "1€",
       "ganador": ""
     },
     "reg3": {
-      "importe": "",
+      "importe": "1€",
       "ganador": ""
     },
     "reg4": {
-      "importe": "",
+      "importe": "1€",
       "ganador": ""
     },
     "po1": {
-      "importe": "",
+      "importe": "1€",
       "ganador": ""
     },
     "po2": {
-      "importe": "",
+      "importe": "1€",
       "ganador": ""
     },
     "po3": {
-      "importe": "",
+      "importe": "1€",
       "ganador": ""
     },
     "po4": {
-      "importe": "",
+      "importe": "1€",
       "ganador": ""
     },
     "trades": {
-      "importe": "",
+      "importe": "1€",
       "ganador": ""
     },
     "improved": {
-      "importe": "",
+      "importe": "1€",
       "ganador": ""
     },
     "consolation": {
-      "importe": "",
+      "importe": "1€",
       "ganador": ""
     }
   },
@@ -499,142 +499,142 @@
     "picks": [
       {
         "pick": 1,
-        "equipo": "",
-        "rookie": ""
+        "equipo": "Boston Bombers",
+        "rookie": "Cameron Boozer"
       },
       {
         "pick": 2,
-        "equipo": "",
-        "rookie": ""
+        "equipo": "Wolfholf got curb stomped",
+        "rookie": "AJ Dybantsa"
       },
       {
         "pick": 3,
-        "equipo": "",
-        "rookie": ""
+        "equipo": "Rookie Monsta!",
+        "rookie": "Darryn Peterson"
       },
       {
         "pick": 4,
-        "equipo": "",
-        "rookie": ""
+        "equipo": "RIP - Rebuilding In Progress",
+        "rookie": "Caleb Wilson"
       },
       {
         "pick": 5,
-        "equipo": "",
-        "rookie": ""
+        "equipo": "Hoop There It Is",
+        "rookie": "Yaxel Lendeborg"
       },
       {
         "pick": 6,
-        "equipo": "",
-        "rookie": ""
+        "equipo": "Ajax Saint-Germain",
+        "rookie": "Darius Acuff Jr"
       },
       {
         "pick": 7,
-        "equipo": "",
-        "rookie": ""
+        "equipo": "Bunch of Clowns",
+        "rookie": "Mikel Brown Jr"
       },
       {
         "pick": 8,
-        "equipo": "",
-        "rookie": ""
+        "equipo": "Bunch of Clowns",
+        "rookie": "Keaton Wagler"
       },
       {
         "pick": 9,
-        "equipo": "",
-        "rookie": ""
+        "equipo": "We the North-ish",
+        "rookie": "Kingston Fleming"
       },
       {
         "pick": 10,
         "equipo": "",
-        "rookie": ""
+        "rookie": "Brayden Burries"
       },
       {
         "pick": 11,
-        "equipo": "",
-        "rookie": ""
+        "equipo": "Nikaros team",
+        "rookie": "Hannes Steinbach"
       },
       {
         "pick": 12,
-        "equipo": "",
-        "rookie": ""
+        "equipo": "#DontReachYoungBlood",
+        "rookie": "Morez Johnson Jr"
       },
       {
         "pick": 13,
-        "equipo": "",
-        "rookie": ""
+        "equipo": "RIP - Rebuilding In Process",
+        "rookie": "Allen Graves"
       },
       {
         "pick": 14,
-        "equipo": "",
-        "rookie": ""
+        "equipo": "Ajax Saint-Germain",
+        "rookie": "Aday Mara"
       },
       {
         "pick": 15,
-        "equipo": "",
-        "rookie": ""
+        "equipo": "Hoop There It Is",
+        "rookie": "Cameron Carr"
       },
       {
         "pick": 16,
-        "equipo": "",
-        "rookie": ""
+        "equipo": "Wolfholf got curb stomped",
+        "rookie": "Ebuka Okorie"
       },
       {
         "pick": 17,
-        "equipo": "",
-        "rookie": ""
+        "equipo": "#DontReachYoungBlood",
+        "rookie": "Sergio de Larrea"
       },
       {
         "pick": 18,
-        "equipo": "",
+        "equipo": "Nikaros team",
         "rookie": ""
       },
       {
         "pick": 19,
-        "equipo": "",
+        "equipo": "Brondy Turd Sandwich",
         "rookie": ""
       },
       {
         "pick": 20,
-        "equipo": "",
-        "rookie": ""
+        "equipo": "We the North-ish",
+        "rookie": "Nate Ament"
       },
       {
         "pick": 21,
-        "equipo": "",
-        "rookie": ""
+        "equipo": "We Come In Peace",
+        "rookie": "Labaron Philon Jr"
       },
       {
         "pick": 22,
-        "equipo": "",
+        "equipo": "Hugh's Hawks",
         "rookie": ""
       },
       {
         "pick": 23,
-        "equipo": "",
+        "equipo": "Ajax Saint-Germain",
         "rookie": ""
       },
       {
         "pick": 24,
-        "equipo": "",
+        "equipo": "Hoop There It Is",
         "rookie": ""
       },
       {
         "pick": 25,
-        "equipo": "",
-        "rookie": ""
+        "equipo": "RIP - Rebuilding in Process",
+        "rookie": "Ryan Conwell"
       },
       {
         "pick": 26,
-        "equipo": "",
-        "rookie": ""
+        "equipo": "Rookie Monsta!",
+        "rookie": "Christian Anderson"
       },
       {
         "pick": 27,
-        "equipo": "",
+        "equipo": "Wolfholf got curb stomped",
         "rookie": ""
       },
       {
         "pick": 28,
-        "equipo": "",
+        "equipo": "Boston Bombers",
         "rookie": ""
       }
     ]
