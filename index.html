@@ -31,6 +31,12 @@ h2 svg{width:22px;height:22px}
 .plq .champ{color:var(--gl);font-size:1.15rem;font-weight:bold}
 .hall{display:flex;justify-content:space-between;align-items:center;padding:6px 0;border-bottom:1px solid var(--line)}
 .hall svg{width:18px;height:18px}
+.grid.g2{grid-template-columns:repeat(auto-fill,minmax(150px,1fr))}
+.card>.mu{margin-bottom:8px}
+.tile{border:1px solid var(--gd);border-radius:10px;padding:12px 8px;background:linear-gradient(180deg,#46301f,var(--card));text-align:center}
+.tile .tt{color:var(--mu);font-size:.78rem;letter-spacing:.12em;text-transform:uppercase}
+.tile .am{color:var(--gl);font-size:1.4rem;font-weight:bold;min-height:2rem;margin:4px 0}
+.tile .wn{font-weight:bold}.tile .e{color:var(--mu);font-weight:normal;font-style:italic}
 .sc{overflow-x:auto}
 table{width:100%;border-collapse:collapse;font-size:.93rem}
 th,td{text-align:left;padding:7px 8px;border-bottom:1px solid var(--line)}
@@ -58,15 +64,16 @@ const P={
  trophy:'<path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.7V17c0 .6-.5 1-1 1.2C7.9 18.8 7 20.2 7 22"/><path d="M14 14.7V17c0 .6.5 1 1 1.2 1.1.6 2 2 2 3.8"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/>',
  podium:'<rect x="3" y="12" width="5" height="9"/><rect x="9.5" y="4" width="5" height="17"/><rect x="16" y="15" width="5" height="6"/>',
  swap:'<path d="M8 3 4 7l4 4"/><path d="M4 7h16"/><path d="m16 21 4-4-4-4"/><path d="M20 17H4"/>',
+ coin:'<circle cx="8" cy="8" r="6"/><path d="M18.09 10.37A6 6 0 1 1 10.34 18"/><path d="M7 6h1v4"/><path d="m16.71 13.88.7.71-2.82 2.82"/>',
  vote:'<path d="m9 12 2 2 4-4"/><path d="M5 7a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v12H5V7Z"/><path d="M22 19H2"/>'
 };
 const ico=(n,c='')=>`<svg class="${c}" viewBox="0 0 24 24" aria-hidden="true">${P[n]}</svg>`;
-const TABS=[['palmares','trophy','Palmarés'],['clasificacion','podium','Clasificación'],['transacciones','swap','Transacciones'],['votaciones','vote','Votaciones']];
+const TABS=[['palmares','trophy','Palmarés'],['clasificacion','podium','Clasificación'],['transacciones','swap','Transacciones'],['prizes','coin','Prizes'],['votaciones','vote','Polls']];
 
 fetch('manual.json',{cache:'no-store'})
  .then(r=>{if(!r.ok)throw new Error('HTTP '+r.status);return r.json()})
  .then(render)
- .catch(e=>{$('#app').innerHTML='<div class="card">No se pudo cargar manual.json ('+esc(e.message)+'). Si abres el archivo en local, usa un servidor: <code>python -m http.server</code>.</div>'});
+ .catch(e=>{$('#app').innerHTML='<div class="card">Could not load manual.json ('+esc(e.message)+'). If you open the file locally, use a server: <code>python -m http.server</code>.</div>'});
 
 function show(id){
   document.querySelectorAll('.tab').forEach(b=>b.setAttribute('aria-selected',b.dataset.t===id));
@@ -79,7 +86,7 @@ function render(d){
   const L=d.liga||{};
   document.title=L.nombre||'Trophy Room';
   $('#t').textContent=L.nombre||'Trophy Room';
-  $('#s').textContent=(L.descripcion||'')+(d.actualizado?' · Actualizado: '+d.actualizado:'');
+  $('#s').textContent=(L.descripcion||'')+(d.actualizado?' · Updated: '+d.actualizado:'');
 
   const tx=[...(d.transacciones||[])].sort((a,b)=>String(b.fecha).localeCompare(String(a.fecha)));
   const cl=d.clasificaciones||{},ss=Object.keys(cl).sort(),cur=ss[ss.length-1],prv=ss[ss.length-2];
@@ -90,7 +97,7 @@ function render(d){
   const cnt={};pal.forEach(p=>cnt[p.campeon]=(cnt[p.campeon]||0)+1);
   const hall=Object.entries(cnt).sort((a,b)=>b[1]-a[1]).map(([id,n])=>`<div class="hall"><span>${esc(nm(id))}</span><span class="gold">${ico('trophy').repeat(Math.min(n,6))}${n>6?' ×'+n:''}</span></div>`).join('');
   const plq=pal.map(p=>`<div class="plq"><div class="yr">${esc(p.temporada)}</div>${ico('trophy')}<div class="champ">${esc(nm(p.campeon))}</div><div class="mu">Runner-up · ${esc(nm(p.subcampeon))}</div>${p.notas?`<div class="mu">${esc(p.notas)}</div>`:''}</div>`).join('');
-  const pPal=`<h2>${ico('trophy')}Trophy Room</h2>${hall?`<div class="card"><div class="mu">Champions</div>${hall}</div>`:''}<div class="grid">${plq||'<p class="mu">Aún no hay campeones.</p>'}</div>`;
+  const pPal=`<h2>${ico('trophy')}Trophy Room</h2>${hall?`<div class="card"><div class="mu">Champions</div>${hall}</div>`:''}<div class="grid">${plq||'<p class="mu">No champions yet.</p>'}</div>`;
 
   /* Ranking */
   let pCl='<p class="mu">No ranking data.</p>';
@@ -105,7 +112,7 @@ function render(d){
   pCl=`<h2>${ico('podium')}Ranking</h2>${pCl}`;
 
   /* Trade Center */
-  const txh=n=>tx.slice(0,n).map(t=>`<div class="tx"><span class="badge">${esc(String(t.tipo||'').replace(/_/g,' '))}</span> <b>${esc((t.equipos||[]).map(nm).join(' ↔ '))}</b> <span class="mu">· ${esc(t.fecha)}</span><div>${esc(t.detalle)}</div></div>`).join('')||'<p class="mu">Sin transacciones.</p>';
+  const txh=n=>tx.slice(0,n).map(t=>`<div class="tx"><span class="badge">${esc(String(t.tipo||'').replace(/_/g,' '))}</span> <b>${esc((t.equipos||[]).map(nm).join(' ↔ '))}</b> <span class="mu">· ${esc(t.fecha)}</span><div>${esc(t.detalle)}</div></div>`).join('')||'<p class="mu">No trades.</p>';
   const pTx=`<h2>${ico('swap')}Trades</h2>
    <div class="card"><div class="mu">Trades by team</div><p><select id="sel"><option value="all">All seasons</option>${seasons.map(s=>`<option>${esc(s)}</option>`).join('')}</select></p><div class="sc" id="cnt"></div></div>
    <div class="card"><div class="mu">Last trades</div><div id="txl">${txh(15)}</div>${tx.length>15?'<p><button id="more">See all ('+tx.length+')</button></p>':''}</div>`;
@@ -119,7 +126,28 @@ function render(d){
   }).join('')||'<p class="mu">No polls.</p>';
   const pVt=`<h2>${ico('vote')}Polls</h2>${vt}`;
 
-  const body={palmares:pPal,clasificacion:pCl,transacciones:pTx,votaciones:pVt};
+  /* Prizes */
+  const PR=d.premios||{},rk=cur?cl[cur]:[];
+  const mgr=id=>(T[id]||{}).manager||'';
+  const best=(fn,unit)=>{
+    const sc=rk.map(id=>[id,fn(id)]).filter(x=>x[1]>0);
+    if(!sc.length)return null;
+    const mx=Math.max(...sc.map(x=>x[1])),w=sc.filter(x=>x[1]===mx).map(x=>x[0]);
+    return w.length>1?{txt:'Tied',sub:w.map(nm).join(', ')+' · '+mx+' '+unit}:{txt:nm(w[0]),sub:mgr(w[0])+' · '+mx+' '+unit};
+  };
+  const nTr=id=>tx.filter(t=>t.temporada===cur&&/traspaso/.test(t.tipo)&&(t.equipos||[]).includes(id)).length;
+  const nUp=id=>prv&&cl[prv].includes(id)?cl[prv].indexOf(id)-rk.indexOf(id):0;
+  const tile=(k,title,auto)=>{
+    const m=PR[k]||{},w=m.ganador?{txt:nm(m.ganador),sub:mgr(m.ganador)}:auto;
+    return `<div class="tile"><div class="tt">${esc(title)}</div><div class="am">${m.importe?esc(m.importe):'—'}</div>${w&&w.txt?`<div class="wn">${esc(w.txt)}</div>${w.sub?`<div class="mu">${esc(w.sub)}</div>`:''}`:'<div class="wn e">To be decided</div>'}</div>`;
+  };
+  const ord=['1st','2nd','3rd','4th'];
+  const pPr=`<h2>${ico('coin')}Prizes${cur?' · '+esc(cur):''}</h2>
+   <div class="card"><div class="mu">Regular season</div><div class="grid g2">${ord.map((o,i)=>tile('reg'+(i+1),o+' place',rk[i]?{txt:nm(rk[i]),sub:mgr(rk[i])}:null)).join('')}</div></div>
+   <div class="card"><div class="mu">Playoffs</div><div class="grid g2">${ord.map((o,i)=>tile('po'+(i+1),o+' place',null)).join('')}</div></div>
+   <div class="card"><div class="mu">Awards</div><div class="grid g2">${tile('trades','Most trades',best(nTr,'trades'))}${tile('improved','Most improved',best(nUp,'places'))}${tile('consolation','Consolation Playoff Winner',null)}</div></div>`;
+
+  const body={palmares:pPal,clasificacion:pCl,transacciones:pTx,prizes:pPr,votaciones:pVt};
   $('#tabs').innerHTML=TABS.map(([id,ic,lb])=>`<button class="tab" role="tab" data-t="${id}" aria-label="${lb}" title="${lb}">${ico(ic)}</button>`).join('');
   $('#app').innerHTML=TABS.map(([id])=>`<div class="pnl" id="p-${id}" role="tabpanel" hidden>${body[id]}</div>`).join('');
   $('#tabs').onclick=e=>{const b=e.target.closest('.tab');if(b)show(b.dataset.t)};
@@ -134,7 +162,7 @@ function render(d){
       const o=c[id]||(c[id]={n:0,tr:0});o.n++;if(/traspaso/.test(t.tipo))o.tr++;
     }));
     const rows=Object.entries(c).sort((a,b)=>b[1].n-a[1].n),mx=Math.max(1,...rows.map(r=>r[1].n));
-    $('#cnt').innerHTML='<table><tr><th>Equipo</th><th>Total</th><th>Traspasos</th><th style="width:35%"></th></tr>'
+    $('#cnt').innerHTML='<table><tr><th>Team</th><th>Total</th><th>Trades</th><th style="width:35%"></th></tr>'
       +rows.map(([id,o])=>`<tr><td>${esc(nm(id))}</td><td>${o.n}</td><td>${o.tr}</td><td><div class="bar" style="width:${o.n/mx*100}%"></div></td></tr>`).join('')+'</table>';
   };
   $('#sel').onchange=draw;draw();

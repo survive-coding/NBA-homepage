@@ -446,5 +446,52 @@
     }
   ],
   "_ayuda": "Edita solo los valores. Comas entre elementos y ninguna tras el ultimo. Fechas AAAA-MM-DD. En 'equipos' y 'clasificaciones' se usan los id de equipo. Borra los elementos de ejemplo.",
-  "actualizado": "2026-10-07"
+  "actualizado": "2026-10-07",
+  "premios": {
+    "reg1": {
+      "importe": "",
+      "ganador": ""
+    },
+    "reg2": {
+      "importe": "",
+      "ganador": ""
+    },
+    "reg3": {
+      "importe": "",
+      "ganador": ""
+    },
+    "reg4": {
+      "importe": "",
+      "ganador": ""
+    },
+    "po1": {
+      "importe": "",
+      "ganador": ""
+    },
+    "po2": {
+      "importe": "",
+      "ganador": ""
+    },
+    "po3": {
+      "importe": "",
+      "ganador": ""
+    },
+    "po4": {
+      "importe": "",
+      "ganador": ""
+    },
+    "trades": {
+      "importe": "",
+      "ganador": ""
+    },
+    "improved": {
+      "importe": "",
+      "ganador": ""
+    },
+    "consolation": {
+      "importe": "",
+      "ganador": ""
+    }
+  },
+  "_ayuda_premios": "premios: 'importe' es texto libre (p. ej. 50 EUR). 'ganador' es opcional: un id de equipo o un nombre; si se rellena, sustituye al calculado automaticamente (reg1-4, trades, improved). po1-4 y consolation son siempre manuales."
 }
