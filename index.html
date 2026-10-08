@@ -1,10 +1,10 @@
 <!doctype html>
-<html lang="es">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#1c120b">
-<title>Sala de trofeos</title>
+<title>Trophy Room</title>
 <style>
 :root{--bg:#1c120b;--panel:#2b1b11;--card:#3a2517;--line:#5a3d28;--tx:#efe3d0;--mu:#b39a7e;--gold:#d4af37;--gl:#f0d27a;--gd:#8f6f1c;--silver:#c9c5bc;--bronze:#b87333;--up:#8fc27a;--dn:#d98a76;--beige:#e6d3b3}
 *{box-sizing:border-box}
@@ -60,7 +60,7 @@ footer{text-align:center;color:var(--mu);font-size:.8rem;padding:14px 16px 24px;
 <header><h1 id="t">Trophy Room</h1><div class="mu" id="s"></div></header>
 <nav class="tabs" role="tablist" id="tabs"></nav>
 <main id="app"><p class="mu">Loading…</p></main>
-<footer>Data mantained regularly.</footer>
+<footer>Data maintained regularly.</footer>
 <script>
 const $=s=>document.querySelector(s);
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -73,7 +73,7 @@ const P={
  vote:'<path d="m9 12 2 2 4-4"/><path d="M5 7a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v12H5V7Z"/><path d="M22 19H2"/>'
 };
 const ico=(n,c='')=>`<svg class="${c}" viewBox="0 0 24 24" aria-hidden="true">${P[n]}</svg>`;
-const TABS=[['palmares','trophy','Palmarés'],['clasificacion','podium','Clasificación'],['transacciones','swap','Transacciones'],['prizes','coin','Prizes'],['draft','checks','Draft'],['votaciones','vote','Polls']];
+const TABS=[['trophy-room','trophy','Trophy Room'],['ranking','podium','Ranking'],['trades','swap','Trades'],['prizes','coin','Prizes'],['draft','checks','Draft'],['polls','vote','Polls']];
 
 fetch('manual.json',{cache:'no-store'})
  .then(r=>{if(!r.ok)throw new Error('HTTP '+r.status);return r.json()})
@@ -128,9 +128,10 @@ function render(d){
    <div class="card"><div class="mu">Last trades</div><div id="txl"></div><p id="mw"></p></div>`;
 
   /* Polls */
+  const ST={abierta:'open',cerrada:'closed'};
   const vt=(d.votaciones||[]).map(v=>{
     const ops=v.opciones||[],tot=ops.reduce((a,o)=>a+o.votos,0)||1;
-    return `<div class="card"><b>${esc(v.titulo)}</b> <span class="badge">${esc(v.estado)}</span><div class="mu">${esc(v.fecha)}${v.descripcion?' · '+esc(v.descripcion):''}</div>`
+    return `<div class="card"><b>${esc(v.titulo)}</b> <span class="badge">${esc(ST[v.estado]||v.estado)}</span><div class="mu">${esc(v.fecha)}${v.descripcion?' · '+esc(v.descripcion):''}</div>`
       +ops.map(o=>`<div>${esc(o.texto)} <span class="mu">${o.votos} (${Math.round(o.votos/tot*100)}%)</span><div class="bar" style="width:${o.votos/tot*100}%"></div></div>`).join('')
       +(v.resultado?`<div class="gold"><b>Result:</b> ${esc(v.resultado)}</div>`:'')+'</div>';
   }).join('')||'<p class="mu">No polls.</p>';
@@ -169,11 +170,12 @@ function render(d){
    <div class="card"><div class="mu">Next Draft</div>${lotRows?`<div class="sc"><table><tr><th>Position</th><th>Team</th><th>Chances of #1</th></tr>${lotRows}</table></div>`:'<p class="mu">No ranking data.</p>'}</div>
    <div class="card"><div class="mu">Last Draft${DR.temporada?' · '+esc(DR.temporada):''}</div><div class="sc"><table><tr><th>Pick</th><th>Team</th><th>Rookie</th></tr>${picks}</table></div></div>`;
 
-  const body={palmares:pPal,clasificacion:pCl,transacciones:pTx,prizes:pPr,draft:pDr,votaciones:pVt};
+  const body={'trophy-room':pPal,ranking:pCl,trades:pTx,prizes:pPr,draft:pDr,polls:pVt};
   $('#tabs').innerHTML=TABS.map(([id,ic,lb])=>`<button class="tab" role="tab" data-t="${id}" aria-label="${lb}" title="${lb}">${ico(ic)}</button>`).join('');
   $('#app').innerHTML=TABS.map(([id])=>`<div class="pnl" id="p-${id}" role="tabpanel" hidden>${body[id]}</div>`).join('');
   $('#tabs').onclick=e=>{const b=e.target.closest('.tab');if(b)show(b.dataset.t)};
-  show(TABS.some(t=>t[0]===location.hash.slice(1))?location.hash.slice(1):'palmares');
+  const OLD={palmares:'trophy-room',clasificacion:'ranking',transacciones:'trades',votaciones:'polls'},h0=location.hash.slice(1),h=OLD[h0]||h0;
+  show(TABS.some(t=>t[0]===h)?h:'trophy-room');
 
   let all=false;
   const draw=()=>{
