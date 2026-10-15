@@ -449,47 +449,39 @@
   "actualizado": "2026-10-07",
   "premios": {
     "reg1": {
-      "importe": "1€",
+      "importe": "55€",
       "ganador": ""
     },
     "reg2": {
-      "importe": "1€",
+      "importe": "35€",
       "ganador": ""
     },
     "reg3": {
-      "importe": "1€",
-      "ganador": ""
-    },
-    "reg4": {
-      "importe": "1€",
+      "importe": "20€",
       "ganador": ""
     },
     "po1": {
-      "importe": "1€",
+      "importe": "55€",
       "ganador": ""
     },
     "po2": {
-      "importe": "1€",
+      "importe": "35€",
       "ganador": ""
     },
     "po3": {
-      "importe": "1€",
-      "ganador": ""
-    },
-    "po4": {
-      "importe": "1€",
+      "importe": "20€",
       "ganador": ""
     },
     "trades": {
-      "importe": "1€",
+      "importe": "20€",
       "ganador": ""
     },
     "improved": {
-      "importe": "1€",
+      "importe": "20€",
       "ganador": ""
     },
     "consolation": {
-      "importe": "1€",
+      "importe": "20€",
       "ganador": ""
     }
   },
