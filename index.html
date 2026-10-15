@@ -152,7 +152,7 @@ function render(d){
     const m=PR[k]||{},w=m.ganador?{txt:nm(m.ganador),sub:mgr(m.ganador)}:auto;
     return `<div class="tile">${w&&w.txt?`<div class="wn">${esc(w.txt)}</div>${w.sub?`<div class="sb">${esc(w.sub)}</div>`:''}`:'<div class="wn e">To be decided</div>'}<div class="tt">${esc(title)}</div><div class="am">${m.importe?esc(m.importe):'—'}</div></div>`;
   };
-  const ord=['1st','2nd','3rd','4th'];
+  const ord=['1st','2nd','3rd'];
   const pPr=`<h2>${ico('coin')}Prizes${cur?' · '+esc(cur):''}</h2>
    <div class="card"><div class="mu">Regular season</div><div class="grid g2">${ord.map((o,i)=>tile('reg'+(i+1),o+' place',rk[i]?{txt:nm(rk[i]),sub:mgr(rk[i])}:null)).join('')}</div></div>
    <div class="card"><div class="mu">Playoffs</div><div class="grid g2">${ord.map((o,i)=>tile('po'+(i+1),o+' place',null)).join('')}</div></div>
