@@ -13,7 +13,7 @@
     {
       "id": "2",
       "nombre": "#DontReachYoungBlood",
-      "manager": "Takahashi"
+      "manager": "Takashi"
     },
     {
       "id": "3",
@@ -42,7 +42,7 @@
     },
     {
       "id": "8",
-      "nombre": "Hoop There it is",
+      "nombre": "Daycare Dynasty",
       "manager": "Serdar"
     },
     {
@@ -415,6 +415,39 @@
         "2"
       ],
       "detalle": "Haarlem Bricklayers Assoc. gets: DeAndre Ayton · #DontReachYoungBlood gets: Nikola Topic"
+    },
+    {
+      "id": "m-1793119797048",
+      "fecha": "2026-10-15",
+      "temporada": "2026-27",
+      "tipo": "trade",
+      "equipos": [
+        "14",
+        "2"
+      ],
+      "detalle": "Wolfholf got curb stomped gets: Andrew Wiggins · #DontReachYoungBlood gets: Wendel Carter Jr, 2nd round pick"
+    },
+    {
+      "id": "m-1793119987433",
+      "fecha": "2026-10-18",
+      "temporada": "2026-27",
+      "tipo": "trade",
+      "equipos": [
+        "7",
+        "8"
+      ],
+      "detalle": "Bunch of Clowns gets: Nickeil Alexander-Walker, Jalen Green · Daycare Dynasty gets: Day'Ron Sharpe, Keaton Wagler"
+    },
+    {
+      "id": "m-1793120048259",
+      "fecha": "2026-10-18",
+      "temporada": "2026-27",
+      "tipo": "trade",
+      "equipos": [
+        "1",
+        "2"
+      ],
+      "detalle": "Haarlem Bricklayers Assoc. gets: RJ Barrett, Daniel Gafford · #DontReachYoungBlood gets: Jalen Smith, 2nd round pick"
     }
   ],
   "votaciones": [
@@ -446,7 +479,7 @@
     }
   ],
   "_ayuda": "Edita solo los valores. Comas entre elementos y ninguna tras el ultimo. Fechas AAAA-MM-DD. En 'equipos' y 'clasificaciones' se usan los id de equipo. Borra los elementos de ejemplo.",
-  "actualizado": "2026-10-07",
+  "actualizado": "2026-10-27",
   "premios": {
     "reg1": {
       "importe": "55€",
