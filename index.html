@@ -123,7 +123,7 @@ function render(d){
   const lab=t=>LAB[t]||String(t||'').replace(/_/g,' ');
   const row=t=>`<div class="tx"><span class="badge">${esc(lab(t.tipo))}</span> <b>${esc((t.equipos||[]).map(nm).join(' ↔ '))}</b> <span class="mu">· ${esc(t.fecha)}</span><div>${esc(t.detalle)}</div></div>`;
   const pTx=`<h2>${ico('swap')}Trades</h2>
-   <p><select id="sel"><option value="all">All seasons</option>${seasons.map(s=>`<option>${esc(s)}</option>`).join('')}</select></p>
+   <p><select id="sel"><option value="all">All seasons</option>${seasons.map(s=>`<option${s===cur?' selected':''}>${esc(s)}</option>`).join('')}</select></p>
    <div class="card"><div class="mu">Trades by team</div><div class="sc" id="cnt"></div></div>
    <div class="card"><div class="mu">Last trades</div><div id="txl"></div><p id="mw"></p></div>`;
 
@@ -185,8 +185,8 @@ function render(d){
       const o=c[id]||(c[id]={n:0,tr:0});o.n++;if(/traspaso/.test(t.tipo))o.tr++;
     }));
     const rows=Object.entries(c).sort((a,b)=>b[1].n-a[1].n),mx=Math.max(1,...rows.map(r=>r[1].n));
-    $('#cnt').innerHTML='<table><tr><th>Team</th><th>Total</th><th>Trades</th><th style="width:35%"></th></tr>'
-      +rows.map(([id,o])=>`<tr><td>${esc(nm(id))}</td><td>${o.n}</td><td>${o.tr}</td><td><div class="bar" style="width:${o.n/mx*100}%"></div></td></tr>`).join('')+'</table>';
+    $('#cnt').innerHTML='<table><tr><th>Team</th><th>Trades</th><th style="width:35%"></th></tr>'
+      +rows.map(([id,o])=>`<tr><td>${esc(nm(id))}</td><td>${o.n}</td><td><div class="bar" style="width:${o.n/mx*100}%"></div></td></tr>`).join('')+'</table>';
     $('#txl').innerHTML=f.slice(0,all?f.length:15).map(row).join('')||'<p class="mu">No trades.</p>';
     $('#mw').innerHTML=!all&&f.length>15?`<button id="more">See all (${f.length})</button>`:'';
     const b=$('#more');if(b)b.onclick=()=>{all=true;draw()};
