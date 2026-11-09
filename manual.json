@@ -172,17 +172,17 @@
       "1",
       "6",
       "2",
-      "13",
-      "14",
+      "4",
       "7",
       "8",
-      "4",
+      "14",
+      "13",
       "11",
-      "12",
-      "9",
       "3",
+      "10",
       "5",
-      "10"
+      "12",
+      "9"
     ]
   },
   "transacciones": [
@@ -495,7 +495,7 @@
     }
   ],
   "_ayuda": "Edita solo los valores. Comas entre elementos y ninguna tras el ultimo. Fechas AAAA-MM-DD. En 'equipos' y 'clasificaciones' se usan los id de equipo. Borra los elementos de ejemplo.",
-  "actualizado": "2026-10-27",
+  "actualizado": "2026-11-09",
   "premios": {
     "reg1": {
       "importe": "55€",
@@ -680,5 +680,23 @@
       }
     ]
   },
-  "_ayuda_draft": "draft.picks: 28 picks (2 rondas x 14). 'equipo' = id de equipo (o nombre) y 'rookie' = nombre del jugador. 'temporada' es opcional y se muestra junto al titulo."
+  "_ayuda_draft": "draft.picks: 28 picks (2 rondas x 14). 'equipo' = id de equipo (o nombre) y 'rookie' = nombre del jugador. 'temporada' es opcional y se muestra junto al titulo.",
+  "yahoo_ids": {
+    "2749": {
+      "1": "1",
+      "2": "2",
+      "3": "4",
+      "4": "5",
+      "5": "6",
+      "6": "7",
+      "7": "8",
+      "8": "9",
+      "9": "10",
+      "10": "3",
+      "11": "11",
+      "12": "12",
+      "13": "13",
+      "14": "14"
+    }
+  }
 }
