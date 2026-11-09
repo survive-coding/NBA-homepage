@@ -1,0 +1,16 @@
+name: NBA data probe
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - name: Probe cdn.nba.com
+        run: python3 nba_probe.py
