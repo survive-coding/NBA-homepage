@@ -185,8 +185,9 @@ def get_day(day, out, today):
         try:
             data = http_json(f"{host}/scoreboard?dates={day:%Y%m%d}")
             events = [compact_event(e) for e in data.get("events") or []]
-            write_json(path, {"day": f"{day:%Y%m%d}", "events": events,
-                              "fetched": datetime.now(timezone.utc).isoformat(timespec="seconds")})
+            if not cached or cached.get("events") != events:  # unchanged day = no rewrite = no noisy commit
+                write_json(path, {"day": f"{day:%Y%m%d}", "events": events,
+                                  "fetched": datetime.now(timezone.utc).isoformat(timespec="seconds")})
             return stamp(events, day), True
         except FetchError as e:
             last = e
