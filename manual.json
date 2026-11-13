@@ -475,7 +475,7 @@
       "estado": "cerrada",
       "opciones": [
         {
-          "texto": "Consolation Bracked",
+          "texto": "Consolation Bracket",
           "votos": 3
         },
         {
@@ -495,7 +495,7 @@
     }
   ],
   "_ayuda": "Edita solo los valores. Comas entre elementos y ninguna tras el ultimo. Fechas AAAA-MM-DD. En 'equipos' y 'clasificaciones' se usan los id de equipo. Borra los elementos de ejemplo.",
-  "actualizado": "2026-11-09",
+  "actualizado": "2026-11-13",
   "premios": {
     "reg1": {
       "importe": "55€",
