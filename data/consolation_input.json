@@ -1,0 +1,43 @@
+{
+  "seeds": [
+    "11",
+    "3",
+    "10",
+    "5",
+    "12",
+    "9"
+  ],
+  "names": {
+    "3": "RIP - Rebuilding in Process",
+    "5": "Boston Bombers",
+    "9": "Hugh’s Hawks",
+    "10": "Nikaros team",
+    "11": "Rookie Monsta!",
+    "12": "We Come In Peace"
+  },
+  "round_mondays": [
+    "2027-03-08",
+    "2027-03-15",
+    "2027-03-22"
+  ],
+  "slots": [
+    "PG",
+    "SG",
+    "G",
+    "SF",
+    "PF",
+    "F",
+    "C",
+    "C",
+    "Util",
+    "Util"
+  ],
+  "lineups": {
+    "1": {},
+    "2": {},
+    "3": {}
+  },
+  "overrides": [],
+  "players": {},
+  "updated": "2026-11-13"
+}
