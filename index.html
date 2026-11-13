@@ -54,6 +54,32 @@ button,select{font:inherit;padding:6px 10px;border-radius:8px;border:1px solid v
 button{cursor:pointer;color:var(--gold)}
 [hidden]{display:none!important}
 footer{text-align:center;color:var(--mu);font-size:.8rem;padding:14px 16px 24px;font-style:italic}
+.co-champ{text-align:center;padding:16px;border:1px solid var(--gd);border-radius:12px;background:linear-gradient(180deg,#46301f,var(--card));margin:0 0 16px}
+.co-champ svg{width:44px;height:44px;color:var(--gold)}
+.co-champ .champ{color:var(--gl);font-size:1.3rem;font-weight:bold}
+.co-cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:14px;align-items:start}
+.co-col h3{margin:0 0 8px;font-size:.95rem;color:var(--gold);letter-spacing:.06em;text-transform:uppercase;display:flex;justify-content:space-between;align-items:baseline;gap:8px;flex-wrap:wrap}
+.co-col h3 span{font-size:.75rem;color:var(--mu);text-transform:none;letter-spacing:0;font-weight:normal}
+.co-m{background:var(--card);border:1px solid var(--line);border-radius:10px;margin:0 0 10px;overflow:hidden}
+.co-t{display:flex;align-items:center;gap:8px;padding:8px 10px;border-left:3px solid transparent}
+.co-t+.co-t{border-top:1px solid var(--line)}
+.co-t.w{border-left-color:var(--gold);color:var(--gl);font-weight:bold}
+.co-t.l{color:var(--mu)}
+.co-t .sd{width:22px;color:var(--mu);font-size:.8rem;flex:none;font-weight:normal}
+.co-t .nn{flex:1;min-width:0;overflow-wrap:anywhere}
+.co-t .pt{font-size:1.15rem;min-width:1.5em;text-align:right}
+.co-n{padding:6px 10px;font-size:.8rem;color:var(--mu);border-top:1px solid var(--line);font-style:italic}
+#co-det{margin:14px 0 0;scroll-margin-top:70px}
+.co-b{cursor:pointer}
+.co-b:focus-visible,.co-b.on{outline:2px solid var(--gold);outline-offset:-2px}
+.co-two{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(480px,100%),1fr));gap:14px}
+.co-ti{margin:0 0 4px!important;font-size:.95rem!important;color:var(--gold)!important;letter-spacing:.04em!important;text-transform:none!important}
+#co-det h4{margin:12px 0 4px;font-size:.8rem;color:var(--gd);letter-spacing:.1em;text-transform:uppercase}
+#co-det table{font-size:.85rem}
+.co-p th,.co-p td{padding:4px 6px;white-space:nowrap}
+td.cw{color:var(--gold);font-weight:bold}
+.co-ph{border:1px dashed var(--line);border-radius:10px;padding:14px;color:var(--mu);text-align:center;font-style:italic}
+.co-foot{font-size:.85rem;margin-top:14px}
 </style>
 </head>
 <body>
@@ -70,14 +96,17 @@ const P={
  swap:'<path d="M8 3 4 7l4 4"/><path d="M4 7h16"/><path d="m16 21 4-4-4-4"/><path d="M20 17H4"/>',
  coin:'<circle cx="8" cy="8" r="6"/><path d="M18.09 10.37A6 6 0 1 1 10.34 18"/><path d="M7 6h1v4"/><path d="m16.71 13.88.7.71-2.82 2.82"/>',
  checks:'<path d="m3 7 2 2 4-4"/><path d="m3 17 2 2 4-4"/><path d="M13 6h8"/><path d="M13 12h8"/><path d="M13 18h8"/>',
+ bracket:'<path d="M3 5h6v14H3"/><path d="M9 12h12"/>',
  vote:'<path d="m9 12 2 2 4-4"/><path d="M5 7a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v12H5V7Z"/><path d="M22 19H2"/>'
 };
 const ico=(n,c='')=>`<svg class="${c}" viewBox="0 0 24 24" aria-hidden="true">${P[n]}</svg>`;
 const TABS=[['trophy-room','trophy','Trophy Room'],['ranking','podium','Ranking'],['trades','swap','Trades'],['prizes','coin','Prizes'],['draft','checks','Draft'],['polls','vote','Polls']];
+const CT=['consolation','bracket','Consolation'];
 
-fetch('manual.json',{cache:'no-store'})
- .then(r=>{if(!r.ok)throw new Error('HTTP '+r.status);return r.json()})
- .then(render)
+Promise.all([
+ fetch('manual.json',{cache:'no-store'}).then(r=>{if(!r.ok)throw new Error('HTTP '+r.status);return r.json()}),
+ fetch('data/consolation.json',{cache:'no-store'}).then(r=>r.ok?r.json():null).catch(()=>null)
+]).then(([d,c])=>render(d,c))
  .catch(e=>{$('#app').innerHTML='<div class="card">Could not load manual.json ('+esc(e.message)+'). If you open the file locally, use a server: <code>python -m http.server</code>.</div>'});
 
 function show(id){
@@ -86,7 +115,7 @@ function show(id){
   history.replaceState(null,'','#'+id);
 }
 
-function render(d){
+function render(d,c){
   const eq=d.equipos||[],T=Object.fromEntries(eq.map(t=>[t.id,t])),nm=id=>T[id]?T[id].nombre:id;
   const L=d.liga||{};
   document.title=L.nombre||'Trophy Room';
@@ -152,11 +181,12 @@ function render(d){
     const m=PR[k]||{},w=m.ganador?{txt:nm(m.ganador),sub:mgr(m.ganador)}:auto;
     return `<div class="tile">${w&&w.txt?`<div class="wn">${esc(w.txt)}</div>${w.sub?`<div class="sb">${esc(w.sub)}</div>`:''}`:'<div class="wn e">To be decided</div>'}<div class="tt">${esc(title)}</div><div class="am">${m.importe?esc(m.importe):'—'}</div></div>`;
   };
+  const cw=c&&c.champion?{txt:nm(c.champion),sub:mgr(c.champion)}:null;
   const ord=['1st','2nd','3rd'];
   const pPr=`<h2>${ico('coin')}Prizes${cur?' · '+esc(cur):''}</h2>
    <div class="card"><div class="mu">Regular season</div><div class="grid g2">${ord.map((o,i)=>tile('reg'+(i+1),o+' place',rk[i]?{txt:nm(rk[i]),sub:mgr(rk[i])}:null)).join('')}</div></div>
    <div class="card"><div class="mu">Playoffs</div><div class="grid g2">${ord.map((o,i)=>tile('po'+(i+1),o+' place',null)).join('')}</div></div>
-   <div class="card"><div class="mu">Awards</div><div class="grid g2">${tile('trades','Most trades',best(nTr,'trades'))}${tile('improved','Most improved',best(nUp,'places'))}${tile('consolation','Consolation Playoff Winner',null)}</div></div>`;
+   <div class="card"><div class="mu">Awards</div><div class="grid g2">${tile('trades','Most trades',best(nTr,'trades'))}${tile('improved','Most improved',best(nUp,'places'))}${tile('consolation','Consolation Playoff Winner',cw)}</div></div>`;
 
   /* Draft */
   const DR=d.draft||{},CH=['33.3%','26.7%','20.0%','10.0%','6.7%','3.3%'];
@@ -170,12 +200,74 @@ function render(d){
    <div class="card"><div class="mu">Next Draft</div>${lotRows?`<div class="sc"><table><tr><th>Position</th><th>Team</th><th>Chances of #1</th></tr>${lotRows}</table></div>`:'<p class="mu">No ranking data.</p>'}</div>
    <div class="card"><div class="mu">Last Draft${DR.temporada?' · '+esc(DR.temporada):''}</div><div class="sc"><table><tr><th>Pick</th><th>Team</th><th>Rookie</th></tr>${picks}</table></div></div>`;
 
-  const body={'trophy-room':pPal,ranking:pCl,trades:pTx,prizes:pPr,draft:pDr,polls:pVt};
-  $('#tabs').innerHTML=TABS.map(([id,ic,lb])=>`<button class="tab" role="tab" data-t="${id}" aria-label="${lb}" title="${lb}">${ico(ic)}</button>`).join('');
-  $('#app').innerHTML=TABS.map(([id])=>`<div class="pnl" id="p-${id}" role="tabpanel" hidden>${body[id]}</div>`).join('');
+  /* Consolation bracket (data/consolation.json is optional: no file, no tab) */
+  const cn=id=>T[id]?T[id].nombre:(((c||{}).names||{})[id]||id);
+  const hasCo=!!(c&&Array.isArray(c.rounds));
+  const CD={};
+  let pCo='';
+  if(hasCo){
+    const sd={};(c.seeds||[]).forEach((id,i)=>sd[id]=i+1);
+    const RN=['Round 1','Round 2','Final'];
+    const md=iso=>new Date(iso+'T00:00:00Z').toLocaleDateString('en-US',{month:'short',day:'numeric',timeZone:'UTC'});
+    const fv=(k,v)=>v==null?'–':(k==='FG%'||k==='FT%')?(v*100).toFixed(1)+'%':v;
+    const noteOf=m=>{
+      const s=m.score,tied=s&&s.ties?`${s.ties} of 9 categories tied`:'';
+      let t='';
+      if(m.status==='awaiting lineups')t='Lineups not set yet';
+      else if(m.override)t='Result set by the commissioner'+(m.override.note?': '+m.override.note:'');
+      else if(m.tiebreak_by_seed)t='Level on categories, so the higher seed advances';
+      else if(m.status==='provisional')t='In progress · '+(m.leader?cn(m.leader)+' ahead':'level');
+      else if(m.status==='not started')t='Not started';
+      return [t,tied].filter(Boolean).join(' · ');
+    };
+    const catTable=m=>{
+      const [a,b]=m.teams,cs=m.categories||{};
+      return `<h4>Categories</h4><div class="sc"><table><tr><th>Category</th><th>${esc(cn(a))}</th><th>${esc(cn(b))}</th></tr>${
+        Object.entries(cs).map(([k,v])=>`<tr><td>${esc(k)}${k==='TO'?' <span class="mu">(fewer wins)</span>':''}</td><td class="${v.winner==='a'?'cw':''}">${fv(k,v.a)}</td><td class="${v.winner==='b'?'cw':''}">${fv(k,v.b)}</td></tr>`).join('')}</table></div>`;
+    };
+    const plTable=(m,id)=>{
+      const L=(m.players||{})[id]||[];
+      if(!L.length)return '';
+      return `<h4>${esc(cn(id))} lineup</h4><div class="sc"><table class="co-p"><tr><th>Slot</th><th>Player</th><th>GP</th><th>PTS</th><th>REB</th><th>AST</th><th>STL</th><th>BLK</th><th>TO</th><th>FG</th><th>3PM</th><th>FT</th></tr>${
+        L.map(p=>`<tr><td class="mu">${esc(p.slot)}</td><td>${esc(p.name)}${p.team?` <span class="mu">${esc(p.team)}</span>`:''}</td><td>${p.gp}</td><td>${p.pts}</td><td>${p.reb}</td><td>${p.ast}</td><td>${p.stl}</td><td>${p.blk}</td><td>${p.to}</td><td>${p.fgm}/${p.fga}</td><td>${p.tpm}</td><td>${p.ftm}/${p.fta}</td></tr>`).join('')}</table></div>`;
+    };
+    const card=(m,i,j)=>{
+      const s=m.score,rows=m.teams.map(id=>`<div class="co-t${m.winner?(m.winner===id?' w':' l'):''}"><span class="sd">${sd[id]||''}</span><span class="nn">${esc(cn(id))}</span><span class="pt">${s?s[id]:''}</span></div>`).join('');
+      const n=noteOf(m),foot=n?`<div class="co-n">${esc(n)}</div>`:'';
+      if(!s)return `<div class="co-m">${rows}${foot}</div>`;
+      const k=i+'-'+j;
+      CD[k]=`<h4 class="co-ti">${RN[i]||'Round '+(i+1)}: ${esc(cn(m.teams[0]))} v ${esc(cn(m.teams[1]))}</h4>${catTable(m)}<div class="co-two">${m.teams.map(id=>`<div>${plTable(m,id)}</div>`).join('')}</div>`;
+      return `<div class="co-m co-b" role="button" tabindex="0" aria-expanded="false" data-k="${k}">${rows}${foot}</div>`;
+    };
+    const cols=c.rounds.map((r,i)=>{
+      let body=(r.matchups||[]).map((m,j)=>card(m,i,j)).join('');
+      if(i===0&&(c.seeds||[]).length>=2)body+=c.seeds.slice(0,2).map(id=>`<div class="co-m"><div class="co-t"><span class="sd">${sd[id]}</span><span class="nn">${esc(cn(id))}</span><span class="mu">bye</span></div></div>`).join('');
+      if(!body)body=`<div class="co-ph">${i===1?'Pairings are set once round 1 ends':'The final is set once round 2 ends'}</div>`;
+      return `<div class="co-col"><h3>${RN[i]||'Round '+r.round}<span>${md(r.monday)} – ${md(r.sunday)} · ${esc(r.status)}</span></h3>${body}</div>`;
+    }).join('');
+    const champ=c.champion?`<div class="co-champ">${ico('trophy')}<div class="champ">${esc(nm(c.champion))}</div><div class="mu">Consolation champion</div></div>`:'';
+    pCo=`<h2>${ico('bracket')}Consolation</h2>${champ}<div class="co-cols">${cols}</div><div class="card" id="co-det" hidden></div><p class="mu co-foot">Teams ranked 9th to 14th play three weekly rounds, Monday to Sunday, each with a lineup fixed for the round. Each of nine categories is compared with the opponent's and the score is categories won. Ties go to the higher regular-season seed. Scores as of ${esc(c.as_of||'')}; tap a matchup for the details.</p>`;
+  }
+
+  const TB=hasCo?[...TABS.slice(0,4),CT,...TABS.slice(4)]:TABS;
+  const body={consolation:pCo,'trophy-room':pPal,ranking:pCl,trades:pTx,prizes:pPr,draft:pDr,polls:pVt};
+  $('#tabs').innerHTML=TB.map(([id,ic,lb])=>`<button class="tab" role="tab" data-t="${id}" aria-label="${lb}" title="${lb}">${ico(ic)}</button>`).join('');
+  $('#app').innerHTML=TB.map(([id])=>`<div class="pnl" id="p-${id}" role="tabpanel" hidden>${body[id]}</div>`).join('');
+
+  if(hasCo){
+    const box=$('#p-consolation'),det=$('#co-det');
+    const pick=el=>{
+      const was=el.classList.contains('on');
+      box.querySelectorAll('.co-b').forEach(x=>{x.classList.remove('on');x.setAttribute('aria-expanded','false')});
+      if(was){det.hidden=true;return}
+      el.classList.add('on');el.setAttribute('aria-expanded','true');det.innerHTML=CD[el.dataset.k];det.hidden=false;det.scrollIntoView({block:'nearest'});
+    };
+    box.addEventListener('click',e=>{const b=e.target.closest('.co-b');if(b)pick(b)});
+    box.addEventListener('keydown',e=>{if((e.key==='Enter'||e.key===' ')&&e.target.classList.contains('co-b')){e.preventDefault();pick(e.target)}});
+  }
   $('#tabs').onclick=e=>{const b=e.target.closest('.tab');if(b)show(b.dataset.t)};
   const OLD={palmares:'trophy-room',clasificacion:'ranking',transacciones:'trades',votaciones:'polls'},h0=location.hash.slice(1),h=OLD[h0]||h0;
-  show(TABS.some(t=>t[0]===h)?h:'trophy-room');
+  show(TB.some(t=>t[0]===h)?h:'trophy-room');
 
   let all=false;
   const draw=()=>{
