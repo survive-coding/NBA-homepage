@@ -1,0 +1,70 @@
+{
+ "generated": "2026-11-13T18:02:59+00:00",
+ "as_of": "2026-11-13",
+ "seeds": [
+  "11",
+  "3",
+  "10",
+  "5",
+  "12",
+  "9"
+ ],
+ "names": {
+  "3": "RIP - Rebuilding in Process",
+  "5": "Boston Bombers",
+  "9": "Hugh’s Hawks",
+  "10": "Nikaros team",
+  "11": "Rookie Monsta!",
+  "12": "We Come In Peace"
+ },
+ "rounds": [
+  {
+   "round": 1,
+   "monday": "2027-03-08",
+   "sunday": "2027-03-14",
+   "status": "not started",
+   "matchups": [
+    {
+     "teams": [
+      "10",
+      "9"
+     ],
+     "seeds": [
+      3,
+      6
+     ],
+     "status": "awaiting lineups"
+    },
+    {
+     "teams": [
+      "5",
+      "12"
+     ],
+     "seeds": [
+      4,
+      5
+     ],
+     "status": "awaiting lineups"
+    }
+   ]
+  },
+  {
+   "round": 2,
+   "monday": "2027-03-15",
+   "sunday": "2027-03-21",
+   "status": "not started",
+   "matchups": [],
+   "note": "waiting for the previous round"
+  },
+  {
+   "round": 3,
+   "monday": "2027-03-22",
+   "sunday": "2027-03-28",
+   "status": "not started",
+   "matchups": [],
+   "note": "waiting for the previous round"
+  }
+ ],
+ "champion": null,
+ "warnings": []
+}
