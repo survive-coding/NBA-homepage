@@ -1,6 +1,6 @@
 {
- "generated": "2026-11-13T18:02:59+00:00",
- "as_of": "2026-11-13",
+ "generated": "2026-11-14T13:23:09+00:00",
+ "as_of": "2026-11-14",
  "seeds": [
   "11",
   "3",
@@ -33,7 +33,134 @@
       3,
       6
      ],
-     "status": "awaiting lineups"
+     "totals": {
+      "10": {
+       "fgm": 0,
+       "fga": 0,
+       "ftm": 0,
+       "fta": 0,
+       "tpm": 0,
+       "pts": 0,
+       "reb": 0,
+       "ast": 0,
+       "stl": 0,
+       "blk": 0,
+       "to": 0,
+       "games": 0
+      },
+      "9": {
+       "fgm": 0,
+       "fga": 0,
+       "ftm": 0,
+       "fta": 0,
+       "tpm": 0,
+       "pts": 0,
+       "reb": 0,
+       "ast": 0,
+       "stl": 0,
+       "blk": 0,
+       "to": 0,
+       "games": 0
+      }
+     },
+     "categories": {
+      "FG%": {
+       "a": null,
+       "b": null,
+       "winner": "tie"
+      },
+      "FT%": {
+       "a": null,
+       "b": null,
+       "winner": "tie"
+      },
+      "3PT": {
+       "a": 0,
+       "b": 0,
+       "winner": "tie"
+      },
+      "PTS": {
+       "a": 0,
+       "b": 0,
+       "winner": "tie"
+      },
+      "REB": {
+       "a": 0,
+       "b": 0,
+       "winner": "tie"
+      },
+      "AST": {
+       "a": 0,
+       "b": 0,
+       "winner": "tie"
+      },
+      "STL": {
+       "a": 0,
+       "b": 0,
+       "winner": "tie"
+      },
+      "BLK": {
+       "a": 0,
+       "b": 0,
+       "winner": "tie"
+      },
+      "TO": {
+       "a": 0,
+       "b": 0,
+       "winner": "tie"
+      }
+     },
+     "score": {
+      "10": 0,
+      "9": 0,
+      "ties": 9
+     },
+     "players": {
+      "10": [
+       {
+        "slot": "PG",
+        "id": "3975",
+        "name": "Stephen Curry",
+        "team": "GS",
+        "gp": 0,
+        "fgm": 0,
+        "fga": 0,
+        "ftm": 0,
+        "fta": 0,
+        "tpm": 0,
+        "pts": 0,
+        "reb": 0,
+        "ast": 0,
+        "stl": 0,
+        "blk": 0,
+        "to": 0
+       }
+      ],
+      "9": [
+       {
+        "slot": "PG",
+        "id": "3908809",
+        "name": "Donovan Mitchell",
+        "team": "CLE",
+        "gp": 0,
+        "fgm": 0,
+        "fga": 0,
+        "ftm": 0,
+        "fta": 0,
+        "tpm": 0,
+        "pts": 0,
+        "reb": 0,
+        "ast": 0,
+        "stl": 0,
+        "blk": 0,
+        "to": 0
+       }
+      ]
+     },
+     "leader": null,
+     "winner": null,
+     "tiebreak_by_seed": false,
+     "status": "not started"
     },
     {
      "teams": [
@@ -44,7 +171,134 @@
       4,
       5
      ],
-     "status": "awaiting lineups"
+     "totals": {
+      "5": {
+       "fgm": 0,
+       "fga": 0,
+       "ftm": 0,
+       "fta": 0,
+       "tpm": 0,
+       "pts": 0,
+       "reb": 0,
+       "ast": 0,
+       "stl": 0,
+       "blk": 0,
+       "to": 0,
+       "games": 0
+      },
+      "12": {
+       "fgm": 0,
+       "fga": 0,
+       "ftm": 0,
+       "fta": 0,
+       "tpm": 0,
+       "pts": 0,
+       "reb": 0,
+       "ast": 0,
+       "stl": 0,
+       "blk": 0,
+       "to": 0,
+       "games": 0
+      }
+     },
+     "categories": {
+      "FG%": {
+       "a": null,
+       "b": null,
+       "winner": "tie"
+      },
+      "FT%": {
+       "a": null,
+       "b": null,
+       "winner": "tie"
+      },
+      "3PT": {
+       "a": 0,
+       "b": 0,
+       "winner": "tie"
+      },
+      "PTS": {
+       "a": 0,
+       "b": 0,
+       "winner": "tie"
+      },
+      "REB": {
+       "a": 0,
+       "b": 0,
+       "winner": "tie"
+      },
+      "AST": {
+       "a": 0,
+       "b": 0,
+       "winner": "tie"
+      },
+      "STL": {
+       "a": 0,
+       "b": 0,
+       "winner": "tie"
+      },
+      "BLK": {
+       "a": 0,
+       "b": 0,
+       "winner": "tie"
+      },
+      "TO": {
+       "a": 0,
+       "b": 0,
+       "winner": "tie"
+      }
+     },
+     "score": {
+      "5": 0,
+      "12": 0,
+      "ties": 9
+     },
+     "players": {
+      "5": [
+       {
+        "slot": "PG",
+        "id": "4065648",
+        "name": "Jayson Tatum",
+        "team": "BOS",
+        "gp": 0,
+        "fgm": 0,
+        "fga": 0,
+        "ftm": 0,
+        "fta": 0,
+        "tpm": 0,
+        "pts": 0,
+        "reb": 0,
+        "ast": 0,
+        "stl": 0,
+        "blk": 0,
+        "to": 0
+       }
+      ],
+      "12": [
+       {
+        "slot": "PG",
+        "id": "5104157",
+        "name": "Victor Wembanyama",
+        "team": "SA",
+        "gp": 0,
+        "fgm": 0,
+        "fga": 0,
+        "ftm": 0,
+        "fta": 0,
+        "tpm": 0,
+        "pts": 0,
+        "reb": 0,
+        "ast": 0,
+        "stl": 0,
+        "blk": 0,
+        "to": 0
+       }
+      ]
+     },
+     "leader": null,
+     "winner": null,
+     "tiebreak_by_seed": false,
+     "status": "not started"
     }
    ]
   },
@@ -66,5 +320,10 @@
   }
  ],
  "champion": null,
- "warnings": []
+ "warnings": [
+  "round 1: team 10 lineup has 1 players, expected 10",
+  "round 1: team 9 lineup has 1 players, expected 10",
+  "round 1: team 5 lineup has 1 players, expected 10",
+  "round 1: team 12 lineup has 1 players, expected 10"
+ ]
 }
