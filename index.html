@@ -61,6 +61,7 @@ h2 svg{width:24px;height:24px;color:var(--amber)}
  -webkit-backdrop-filter:blur(16px) saturate(1.2);backdrop-filter:blur(16px) saturate(1.2);box-shadow:0 10px 30px rgba(0,0,0,.35),inset 0 1px 0 rgba(255,255,255,.08)}
 .card>.mu:first-child{font:600 .85rem var(--f-display);letter-spacing:.03em;color:var(--tx);margin-bottom:10px}
 .card>.mu{margin-bottom:8px}
+.card>.mu.nt:first-child{font:400 .85rem var(--f-body);color:var(--mu);margin:0 0 10px}
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
 .plq{text-align:center;padding:16px 12px;border:1px solid var(--glass-bd);border-radius:14px;
  background:linear-gradient(180deg,rgba(255,255,255,.1),rgba(255,255,255,.03));box-shadow:inset 0 1px 0 rgba(255,255,255,.1)}
@@ -130,7 +131,7 @@ footer{text-align:center;color:var(--mu);font-size:.78rem;padding:14px 16px 26px
 .co-p th,.co-p td{padding:5px 6px;white-space:nowrap}
 td.cw{color:var(--amber);font-weight:700}
 .co-ph{border:1px dashed var(--glass-bd);border-radius:12px;padding:16px;color:var(--mu);text-align:center;font-style:italic}
-.co-foot{font-size:.83rem;margin-top:14px}
+.co-foot{font-size:.83rem;margin-top:14px;background:var(--glass);border:1px solid var(--glass-bd);border-radius:14px;padding:12px 14px;-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px)}
 @media(prefers-reduced-motion:reduce){*{transition:none!important}}
 </style>
 </head>
@@ -190,7 +191,7 @@ function render(d,c){
   const pPal=`<h2>${ico('trophy')}Trophy Room</h2>`+(pal.length?`<div class="card"><div class="mu">Champions</div><div class="grid">${champs}</div></div><div class="card"><div class="mu">Season results</div><div class="sc"><table class="res"><tr><th>Season</th><th>Winner</th><th>Runner-up</th><th>3rd</th></tr>${res}</table></div></div>`:'<p class="mu">No champions yet.</p>');
 
   /* Ranking */
-  let pCl='<p class="mu">No ranking data.</p>';
+  let pCl='<p class="mu nt">No ranking data.</p>';
   if(cur){
     const avg=id=>{const v=ss.map(k=>cl[k].indexOf(id)+1).filter(x=>x>0);return v.length?(v.reduce((a,b)=>a+b,0)/v.length).toFixed(1):'–'};
     const rows=cl[cur].map((id,i)=>{
@@ -198,9 +199,9 @@ function render(d,c){
       const dh=dl===null?'<span class="mu">–</span>':dl>0?`<span class="up">▲ ${dl}</span>`:dl<0?`<span class="dn">▼ ${-dl}</span>`:'<span class="mu">=</span>';
       return `<tr><td class="${i<3?'r'+(i+1):''}">${i+1}</td><td>${esc(nm(id))}</td><td class="mu">${esc(T[id]?T[id].manager:'')}</td><td>${avg(id)}</td><td>${pr||'–'}</td><td>${dh}</td></tr>`;
     }).join('');
-    pCl=`<p class="mu">Current standings against last season's · Average = mean finish over ${ss.length} season${ss.length>1?'s':''}</p><div class="sc"><table><tr><th>Pos</th><th>Team</th><th>Manager</th><th>Average</th><th>Last</th><th>Change</th></tr>${rows}</table></div>`;
+    pCl=`<p class="mu nt">Current standings against last season's · Average = mean finish over ${ss.length} season${ss.length>1?'s':''}</p><div class="sc"><table><tr><th>Pos</th><th>Team</th><th>Manager</th><th>Average</th><th>Last</th><th>Change</th></tr>${rows}</table></div>`;
   }
-  pCl=`<h2>${ico('podium')}Ranking</h2>${pCl}`;
+  pCl=`<h2>${ico('podium')}Ranking</h2><div class="card">${pCl}</div>`;
 
   /* Trade Center */
   const LAB={traspaso:'trade',traspaso_picks:'trade picks',fichaje:'signing',corte:'drop',fichaje_corte:'add/drop',otro:'other'};
