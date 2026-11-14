@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-14T13:23:09+00:00",
+ "generated": "2026-11-14T13:37:21+00:00",
  "as_of": "2026-11-14",
  "seeds": [
   "11",
@@ -22,7 +22,7 @@
    "round": 1,
    "monday": "2026-11-02",
    "sunday": "2026-11-08",
-   "status": "not started",
+   "status": "final",
    "matchups": [
     {
      "teams": [
@@ -35,85 +35,85 @@
      ],
      "totals": {
       "10": {
-       "fgm": 0,
-       "fga": 0,
-       "ftm": 0,
-       "fta": 0,
-       "tpm": 0,
-       "pts": 0,
-       "reb": 0,
-       "ast": 0,
-       "stl": 0,
+       "fgm": 31,
+       "fga": 59,
+       "ftm": 26,
+       "fta": 27,
+       "tpm": 16,
+       "pts": 104,
+       "reb": 13,
+       "ast": 17,
+       "stl": 2,
        "blk": 0,
-       "to": 0,
-       "games": 0
+       "to": 6,
+       "games": 3
       },
       "9": {
-       "fgm": 0,
-       "fga": 0,
-       "ftm": 0,
-       "fta": 0,
-       "tpm": 0,
-       "pts": 0,
-       "reb": 0,
-       "ast": 0,
-       "stl": 0,
-       "blk": 0,
-       "to": 0,
-       "games": 0
+       "fgm": 36,
+       "fga": 74,
+       "ftm": 17,
+       "fta": 27,
+       "tpm": 15,
+       "pts": 104,
+       "reb": 19,
+       "ast": 29,
+       "stl": 5,
+       "blk": 2,
+       "to": 14,
+       "games": 4
       }
      },
      "categories": {
       "FG%": {
-       "a": null,
-       "b": null,
-       "winner": "tie"
+       "a": 0.5254,
+       "b": 0.4865,
+       "winner": "a"
       },
       "FT%": {
-       "a": null,
-       "b": null,
-       "winner": "tie"
+       "a": 0.963,
+       "b": 0.6296,
+       "winner": "a"
       },
       "3PT": {
-       "a": 0,
-       "b": 0,
-       "winner": "tie"
+       "a": 16,
+       "b": 15,
+       "winner": "a"
       },
       "PTS": {
-       "a": 0,
-       "b": 0,
+       "a": 104,
+       "b": 104,
        "winner": "tie"
       },
       "REB": {
-       "a": 0,
-       "b": 0,
-       "winner": "tie"
+       "a": 13,
+       "b": 19,
+       "winner": "b"
       },
       "AST": {
-       "a": 0,
-       "b": 0,
-       "winner": "tie"
+       "a": 17,
+       "b": 29,
+       "winner": "b"
       },
       "STL": {
-       "a": 0,
-       "b": 0,
-       "winner": "tie"
+       "a": 2,
+       "b": 5,
+       "winner": "b"
       },
       "BLK": {
        "a": 0,
-       "b": 0,
-       "winner": "tie"
+       "b": 2,
+       "winner": "b"
       },
       "TO": {
-       "a": 0,
-       "b": 0,
-       "winner": "tie"
+       "a": 6,
+       "b": 14,
+       "winner": "a"
       }
      },
      "score": {
-      "10": 0,
-      "9": 0,
-      "ties": 9
+      "10": 4,
+      "9": 4,
+      "ties": 1
      },
      "players": {
       "10": [
@@ -122,18 +122,18 @@
         "id": "3975",
         "name": "Stephen Curry",
         "team": "GS",
-        "gp": 0,
-        "fgm": 0,
-        "fga": 0,
-        "ftm": 0,
-        "fta": 0,
-        "tpm": 0,
-        "pts": 0,
-        "reb": 0,
-        "ast": 0,
-        "stl": 0,
+        "gp": 3,
+        "fgm": 31,
+        "fga": 59,
+        "ftm": 26,
+        "fta": 27,
+        "tpm": 16,
+        "pts": 104,
+        "reb": 13,
+        "ast": 17,
+        "stl": 2,
         "blk": 0,
-        "to": 0
+        "to": 6
        }
       ],
       "9": [
@@ -142,25 +142,25 @@
         "id": "3908809",
         "name": "Donovan Mitchell",
         "team": "CLE",
-        "gp": 0,
-        "fgm": 0,
-        "fga": 0,
-        "ftm": 0,
-        "fta": 0,
-        "tpm": 0,
-        "pts": 0,
-        "reb": 0,
-        "ast": 0,
-        "stl": 0,
-        "blk": 0,
-        "to": 0
+        "gp": 4,
+        "fgm": 36,
+        "fga": 74,
+        "ftm": 17,
+        "fta": 27,
+        "tpm": 15,
+        "pts": 104,
+        "reb": 19,
+        "ast": 29,
+        "stl": 5,
+        "blk": 2,
+        "to": 14
        }
       ]
      },
      "leader": null,
-     "winner": null,
-     "tiebreak_by_seed": false,
-     "status": "not started"
+     "winner": "10",
+     "tiebreak_by_seed": true,
+     "status": "final"
     },
     {
      "teams": [
@@ -173,85 +173,85 @@
      ],
      "totals": {
       "5": {
-       "fgm": 0,
-       "fga": 0,
-       "ftm": 0,
-       "fta": 0,
-       "tpm": 0,
-       "pts": 0,
-       "reb": 0,
-       "ast": 0,
-       "stl": 0,
-       "blk": 0,
-       "to": 0,
-       "games": 0
+       "fgm": 20,
+       "fga": 51,
+       "ftm": 23,
+       "fta": 23,
+       "tpm": 11,
+       "pts": 74,
+       "reb": 18,
+       "ast": 24,
+       "stl": 3,
+       "blk": 2,
+       "to": 10,
+       "games": 3
       },
       "12": {
-       "fgm": 0,
-       "fga": 0,
-       "ftm": 0,
-       "fta": 0,
-       "tpm": 0,
-       "pts": 0,
-       "reb": 0,
-       "ast": 0,
-       "stl": 0,
-       "blk": 0,
-       "to": 0,
-       "games": 0
+       "fgm": 40,
+       "fga": 74,
+       "ftm": 35,
+       "fta": 44,
+       "tpm": 8,
+       "pts": 123,
+       "reb": 56,
+       "ast": 12,
+       "stl": 4,
+       "blk": 14,
+       "to": 11,
+       "games": 4
       }
      },
      "categories": {
       "FG%": {
-       "a": null,
-       "b": null,
-       "winner": "tie"
+       "a": 0.3922,
+       "b": 0.5405,
+       "winner": "b"
       },
       "FT%": {
-       "a": null,
-       "b": null,
-       "winner": "tie"
+       "a": 1.0,
+       "b": 0.7955,
+       "winner": "a"
       },
       "3PT": {
-       "a": 0,
-       "b": 0,
-       "winner": "tie"
+       "a": 11,
+       "b": 8,
+       "winner": "a"
       },
       "PTS": {
-       "a": 0,
-       "b": 0,
-       "winner": "tie"
+       "a": 74,
+       "b": 123,
+       "winner": "b"
       },
       "REB": {
-       "a": 0,
-       "b": 0,
-       "winner": "tie"
+       "a": 18,
+       "b": 56,
+       "winner": "b"
       },
       "AST": {
-       "a": 0,
-       "b": 0,
-       "winner": "tie"
+       "a": 24,
+       "b": 12,
+       "winner": "a"
       },
       "STL": {
-       "a": 0,
-       "b": 0,
-       "winner": "tie"
+       "a": 3,
+       "b": 4,
+       "winner": "b"
       },
       "BLK": {
-       "a": 0,
-       "b": 0,
-       "winner": "tie"
+       "a": 2,
+       "b": 14,
+       "winner": "b"
       },
       "TO": {
-       "a": 0,
-       "b": 0,
-       "winner": "tie"
+       "a": 10,
+       "b": 11,
+       "winner": "a"
       }
      },
      "score": {
-      "5": 0,
-      "12": 0,
-      "ties": 9
+      "5": 4,
+      "12": 5,
+      "ties": 0
      },
      "players": {
       "5": [
@@ -260,18 +260,18 @@
         "id": "4065648",
         "name": "Jayson Tatum",
         "team": "BOS",
-        "gp": 0,
-        "fgm": 0,
-        "fga": 0,
-        "ftm": 0,
-        "fta": 0,
-        "tpm": 0,
-        "pts": 0,
-        "reb": 0,
-        "ast": 0,
-        "stl": 0,
-        "blk": 0,
-        "to": 0
+        "gp": 3,
+        "fgm": 20,
+        "fga": 51,
+        "ftm": 23,
+        "fta": 23,
+        "tpm": 11,
+        "pts": 74,
+        "reb": 18,
+        "ast": 24,
+        "stl": 3,
+        "blk": 2,
+        "to": 10
        }
       ],
       "12": [
@@ -280,25 +280,25 @@
         "id": "5104157",
         "name": "Victor Wembanyama",
         "team": "SA",
-        "gp": 0,
-        "fgm": 0,
-        "fga": 0,
-        "ftm": 0,
-        "fta": 0,
-        "tpm": 0,
-        "pts": 0,
-        "reb": 0,
-        "ast": 0,
-        "stl": 0,
-        "blk": 0,
-        "to": 0
+        "gp": 4,
+        "fgm": 40,
+        "fga": 74,
+        "ftm": 35,
+        "fta": 44,
+        "tpm": 8,
+        "pts": 123,
+        "reb": 56,
+        "ast": 12,
+        "stl": 4,
+        "blk": 14,
+        "to": 11
        }
       ]
      },
-     "leader": null,
-     "winner": null,
+     "leader": "12",
+     "winner": "12",
      "tiebreak_by_seed": false,
-     "status": "not started"
+     "status": "final"
     }
    ]
   },
@@ -307,8 +307,30 @@
    "monday": "2027-03-15",
    "sunday": "2027-03-21",
    "status": "not started",
-   "matchups": [],
-   "note": "waiting for the previous round"
+   "matchups": [
+    {
+     "teams": [
+      "11",
+      "12"
+     ],
+     "seeds": [
+      1,
+      5
+     ],
+     "status": "awaiting lineups"
+    },
+    {
+     "teams": [
+      "3",
+      "10"
+     ],
+     "seeds": [
+      2,
+      3
+     ],
+     "status": "awaiting lineups"
+    }
+   ]
   },
   {
    "round": 3,
