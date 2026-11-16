@@ -169,19 +169,19 @@
       "12"
     ],
     "2026-27": [
-      "1",
       "6",
+      "1",
       "2",
+      "8",
       "4",
       "7",
-      "8",
-      "14",
       "13",
+      "14",
+      "5",
       "11",
       "3",
-      "10",
-      "5",
       "12",
+      "10",
       "9"
     ]
   },
@@ -492,10 +492,32 @@
         }
       ],
       "resultado": "Lottery + Consolation Bracket"
+    },
+    {
+      "id": "v-1794821986164",
+      "titulo": "IL-allowed statuses",
+      "descripcion": "",
+      "fecha": "2026-11-14",
+      "estado": "cerrada",
+      "opciones": [
+        {
+          "texto": "Only Out",
+          "votos": 8
+        },
+        {
+          "texto": "Out and Doubtful",
+          "votos": 0
+        },
+        {
+          "texto": "Out, Doubtful and Questionable",
+          "votos": 3
+        }
+      ],
+      "resultado": "Only Out"
     }
   ],
   "_ayuda": "Edita solo los valores. Comas entre elementos y ninguna tras el ultimo. Fechas AAAA-MM-DD. En 'equipos' y 'clasificaciones' se usan los id de equipo. Borra los elementos de ejemplo.",
-  "actualizado": "2026-11-13",
+  "actualizado": "2026-11-16",
   "premios": {
     "reg1": {
       "importe": "55€",
